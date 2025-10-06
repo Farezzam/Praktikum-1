@@ -1,287 +1,200 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>👾 Info Cuaca Terkini 100% Akurat</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-  <style>
-    /* --- JUMBO MODE - UKURAN LEBIH BESAR LAGI --- */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👾 Info Cuaca Terkini 100% Akurat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     body {
-      font-family: 'Press Start 2P', cursive;
-      background-color: #5D9BFF;
-      color: #212121;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow-x: hidden;
-      image-rendering: pixelated;
-      
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 180' shape-rendering='crispEdges'%3E%3C!-- Tanah Bawah --%3E%3Crect fill='%23E7993C' width='800' height='40' y='140'/%3E%3Crect fill='%23A06020' width='800' height='20' y='160'/%3E%3C!-- Rumput --%3E%3Crect fill='%2300A800' width='800' height='20' y='120'/%3E%3C!-- Bukit 1 --%3E%3Crect fill='%2300A800' x='50' y='100' width='200' height='20'/%3E%3Crect fill='%2300A800' x='70' y='80' width='160' height='20'/%3E%3C!-- Semak di Bukit --%3E%3Crect fill='%23007800' x='120' y='60' width='60' height='20'/%3E%3C!-- Bukit 2 (Latar Belakang) --%3E%3Crect fill='%23007800' x='350' y='110' width='300' height='10'/%3E%3Crect fill='%23007800' x='370' y='90' width='260' height='20'/%3E%3C!-- Awan --%3E%3Crect fill='%23FFFFFF' x='550' y='20' width='40' height='20'/%3E%3Crect fill='%23FFFFFF' x='530' y='40' width='80' height='20'/%3E%3C/svg%3E");
-      background-repeat: repeat-x;
-      background-position: bottom center;
-      background-size: auto 250px; /* Background lebih besar */
-      animation: scroll-background 20s linear infinite;
+        font-family: 'Press Start 2P', cursive;
+        background-color: #5D9BFF;
+        color: #212121;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow-x: hidden;
+        image-rendering: pixelated;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 180' shape-rendering='crispEdges'%3E%3C!-- Tanah Bawah --%3E%3Crect fill='%23E7993C' width='800' height='40' y='140'/%3E%3Crect fill='%23A06020' width='800' height='20' y='160'/%3E%3C!-- Rumput --%3E%3Crect fill='%2300A800' width='800' height='20' y='120'/%3E%3C!-- Bukit 1 --%3E%3Crect fill='%2300A800' x='50' y='100' width='200' height='20'/%3E%3Crect fill='%2300A800' x='70' y='80' width='160' height='20'/%3E%3C!-- Semak di Bukit --%3E%3Crect fill='%23007800' x='120' y='60' width='60' height='20'/%3E%3C!-- Bukit 2 (Latar Belakang) --%3E%3Crect fill='%23007800' x='350' y='110' width='300' height='10'/%3E%3Crect fill='%23007800' x='370' y='90' width='260' height='20'/%3E%3C!-- Awan --%3E%3Crect fill='%23FFFFFF' x='550' y='20' width='40' height='20'/%3E%3Crect fill='%23FFFFFF' x='530' y='40' width='80' height='20'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: bottom center;
+        background-size: auto 250px;
+        animation: scroll-background 20s linear infinite;
     }
 
     @keyframes scroll-background {
-      from { background-position-x: 0; }
-      to { background-position-x: -800px; }
+        from { background-position-x: 0; }
+        to { background-position-x: -800px; }
     }
 
     .container {
-      position: relative;
-      background: rgba(255, 255, 255, 0.9);
-      border: 6px solid #00C700; /* Border lebih tebal */
-      padding: 50px; /* Padding lebih besar */
-      width: 90%;
-      max-width: 850px; /* Kontainer lebih lebar */
-      text-align: center;
-      z-index: 1;
-      box-shadow: 
+        position: relative;
+        background: rgba(255, 255, 255, 0.9);
+        border: 6px solid #00C700;
+        padding: 50px; 
+        width: 90%;
+        max-width: 850px; 
+        text-align: center;
+        z-index: 1;
+        box-shadow: 
         0 0 0 6px #FF8C00,
         inset 0 0 0 6px rgba(0,0,0,0.1);
-      animation: fadeIn 0.8s ease-in-out;
+        animation: fadeIn 0.8s ease-in-out;
     }
 
     @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(30px);}
-      to {opacity: 1; transform: translateY(0);}
+        from {opacity: 0; transform: translateY(30px);}
+        to {opacity: 1; transform: translateY(0);}
     }
 
     h1 {
-      color: #FF8C00;
-      font-size: 2.2em; /* Font lebih besar */
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-      text-shadow: 5px 5px 0 #00C700;
+        color: #FF8C00;
+        font-size: 2.2em; 
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        text-shadow: 5px 5px 0 #00C700;
     }
 
     p {
-      color: #444;
-      font-size: 1em; /* Font lebih besar */
-      margin-bottom: 40px;
-      line-height: 1.6;
+        color: #444;
+        font-size: 1em; 
+        margin-bottom: 40px;
+        line-height: 1.6;
     }
 
     .search-box {
-      display: flex;
-      margin-bottom: 30px;
+        display: flex;
+        margin-bottom: 30px;
     }
 
     .search-box input {
-      flex: 1;
-      padding: 20px 24px; /* Padding lebih besar */
-      border: 6px solid #FF8C00;
-      background: #fff;
-      color: #212121;
-      outline: none;
-      font-size: 20px; /* Font lebih besar */
-      font-family: 'Press Start 2P', cursive;
+        flex: 1;
+        padding: 20px 24px; 
+        border: 6px solid #FF8C00;
+        background: #fff;
+        color: #212121;
+        outline: none;
+        font-size: 20px; 
+        font-family: 'Press Start 2P', cursive;
     }
 
     .search-box input:focus {
-      border-color: #00C700;
+        border-color: #00C700;
     }
 
     .search-box button {
-      padding: 20px 28px; /* Padding lebih besar */
-      background: #FF8C00;
-      border: 6px solid #FF8C00;
-      color: #fff;
-      cursor: pointer;
-      font-family: 'Press Start 2P', cursive;
-      transition: 0.2s;
+        padding: 20px 28px; 
+        background: #FF8C00;
+        border: 6px solid #FF8C00;
+        color: #fff;
+        cursor: pointer;
+        font-family: 'Press Start 2P', cursive;
+        transition: 0.2s;
     }
 
     .search-box button:hover {
-      background: #00C700;
-      border-color: #00C700;
+        background: #00C700;
+        border-color: #00C700;
     }
 
     .loading {
-      display: none;
-      color: #FF8C00;
-      margin-top: 20px;
-      font-size: 1.2em; /* Font lebih besar */
-      animation: blink 1s steps(1, end) infinite;
+        display: none;
+        color: #FF8C00;
+        margin-top: 20px;
+        font-size: 1.2em; 
+        animation: blink 1s steps(1, end) infinite;
     }
 
     @keyframes blink {
-      50% { opacity: 0; }
+        50% { opacity: 0; }
     }
 
     .error {
-      display: none;
-      background: #FF4136;
-      color: white;
-      padding: 16px;
-      margin-top: 20px;
-      border: 6px solid #212121;
-      font-size: 1.1em; /* Font lebih besar */
+        display: none;
+        background: #FF4136;
+        color: white;
+        padding: 16px;
+        margin-top: 20px;
+        border: 6px solid #212121;
+        font-size: 1.1em; 
     }
 
     .weather-card {
-      display: none;
-      margin-top: 35px;
-      border-top: 6px solid #00C700;
-      padding-top: 30px;
-      animation: fadeIn 0.8s ease-in-out;
+        display: none;
+        margin-top: 35px;
+        border-top: 6px solid #00C700;
+        padding-top: 30px;
+        animation: fadeIn 0.8s ease-in-out;
     }
 
     .weather-card h2 {
-      color: #212121;
-      font-size: 2em; /* Font lebih besar */
-      text-shadow: 4px 4px 0 #FF8C00;
+        color: #212121;
+        font-size: 2em; 
+        text-shadow: 4px 4px 0 #FF8C00;
     }
 
     .weather-card img {
-      width: 160px; /* Ikon lebih besar */
-      height: 160px; /* Ikon lebih besar */
-      margin: 25px 0;
-      image-rendering: pixelated;
+        width: 160px; 
+        height: 160px; 
+        margin: 25px 0;
+        image-rendering: pixelated;
     }
 
     .temp {
-      font-size: 4.5em; /* Font lebih besar */
-      color: #FF8C00;
-      text-shadow: 6px 6px 0 #00C700;
+        font-size: 4.5em; 
+        color: #FF8C00;
+        text-shadow: 6px 6px 0 #00C700;
     }
 
     #condition {
-      font-size: 1.2em; /* Font lebih besar */
-      color: #555;
-      margin-top: 15px;
+        font-size: 1.2em; 
+        color: #555;
+        margin-top: 15px;
     }
 
     .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px; /* Jarak lebih besar */
-      margin-top: 35px;
-      font-size: 1em; /* Font lebih besar */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px; 
+        margin-top: 35px;
+        font-size: 1em; 
     }
 
     .info-item {
-      background: rgba(0, 199, 0, 0.1);
-      border: 4px solid #00C700;
-      padding: 20px; /* Padding lebih besar */
-      color: #333;
+        background: rgba(0, 199, 0, 0.1);
+        border: 4px solid #00C700;
+        padding: 20px; 
+        color: #333;
     }
     
     .info-item strong {
         display: block;
         margin-top: 10px;
         color: #000;
-        font-size: 1.3em; /* Font lebih besar */
+        font-size: 1.3em; 
     }
 
     .footer {
-      margin-top: 40px;
-      font-size: 0.9em; /* Font lebih besar */
-      color: #555;
+        margin-top: 40px;
+        font-size: 0.9em; 
+        color: #555;
     }
 
     .footer a {
-      color: #FF8C00;
-      text-decoration: none;
+        color: #FF8C00;
+        text-decoration: none;
     }
 
     .footer a:hover {
-      color: #00C700;
+        color: #00C700;
     }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>👾 Info Cuaca Terkini 100% Akurat</h1>
-    <p>"SELECT YOUR CITY TO START THE QUEST"</p>
-
-    <div class="search-box">
-      <input type="text" id="locationInput" placeholder="NAMA KOTA...">
-      <button onclick="getWeather()">CARI</button>
-    </div>
-
-    <div class="loading" id="loading">LOADING...</div>
-    <div class="error" id="error"></div>
-
-    <div class="weather-card" id="weatherCard">
-      <h2 id="locationName">-</h2>
-      <img id="weatherIcon" src="" alt="Weather Icon">
-      <div class="temp" id="temperature">-°C</div>
-      <div id="condition">-</div>
-
-      <div class="info-grid">
-        <div class="info-item">NEGARA: <strong id="country">-</strong></div>
-        <div class="info-item">REGION: <strong id="region">-</strong></div>
-        <div class="info-item">TERASA: <strong id="feelslike">-°C</strong></div>
-        <div class="info-item">KELEMBABAN: <strong id="humidity">-%</strong></div>
-      </div>
-    </div>
-
-    <div class="footer">
-      <p>🍄 POWERED BY <a href="https://www.weatherapi.com/" target="_blank">WeatherAPI</a></p>
-    </div>
-  </div>
-
-  <script>
-    // --- JavaScript tidak perlu diubah sama sekali ---
-    const API_KEY = '1ab66116704c48b5bc140436250610';
-    const API_URL = 'https://api.weatherapi.com/v1/current.json';
-
-    document.getElementById('locationInput').addEventListener('keypress', e => {
-      if (e.key === 'Enter') getWeather();
-    });
-
-    async function getWeather() {
-      const location = document.getElementById('locationInput').value.trim();
-      if (!location) return showError("MASUKKAN NAMA KOTA!");
-
-      document.getElementById('loading').style.display = 'block';
-      document.getElementById('error').style.display = 'none';
-      document.getElementById('weatherCard').style.display = 'none';
-
-      try {
-        const res = await fetch(`${API_URL}?key=${API_KEY}&q=${encodeURIComponent(location)}&aqi=no`);
-        if (!res.ok) throw new Error("DATA TIDAK DITEMUKAN");
-        const data = await res.json();
-        showWeather(data);
-      } catch (err) {
-        showError("LOKASI TIDAK DITEMUKAN!");
-      } finally {
-        document.getElementById('loading').style.display = 'none';
-      }
-    }
-
-    function showWeather(data) {
-      document.getElementById('weatherCard').style.display = 'block';
-      document.getElementById('locationName').textContent = data.location.name;
-      document.getElementById('country').textContent = data.location.country;
-      document.getElementById('region').textContent = data.location.region || "-";
-      document.getElementById('temperature').textContent = `${Math.round(data.current.temp_c)}°C`;
-      document.getElementById('condition').textContent = data.current.condition.text;
-      document.getElementById('feelslike').textContent = `${Math.round(data.current.feelslike_c)}°C`;
-      document.getElementById('humidity').textContent = `${data.current.humidity}%`;
-      // Mengubah ukuran ikon dari URL API jika memungkinkan (opsional, tapi bagus untuk konsistensi)
-      let iconUrl = "https:" + data.current.condition.icon;
-      document.getElementById('weatherIcon').src = iconUrl.replace("64x64", "128x128");
-    }
-
-    function showError(msg) {
-      const e = document.getElementById('error');
-      e.textContent = msg;
-      e.style.display = 'block';
-      setTimeout(() => e.style.display = 'none', 3000);
-    }
-  </script>
-</body>
-</html>
+    </style>
