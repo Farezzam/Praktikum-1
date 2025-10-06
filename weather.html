@@ -230,3 +230,54 @@
       <p>🍄 POWERED BY <a href="https://www.weatherapi.com/" target="_blank">WeatherAPI</a></p>
     </div>
   </div>
+
+   <script>
+    const API_KEY = '1ab66116704c48b5bc140436250610';
+    const API_URL = 'https://api.weatherapi.com/v1/current.json';
+
+    document.getElementById('locationInput').addEventListener('keypress', e => {
+      if (e.key === 'Enter') getWeather();
+    });
+
+    async function getWeather() {
+      const location = document.getElementById('locationInput').value.trim();
+      if (!location) return showError("MASUKKAN NAMA KOTA!");
+
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('error').style.display = 'none';
+      document.getElementById('weatherCard').style.display = 'none';
+
+      try {
+        const res = await fetch(`${API_URL}?key=${API_KEY}&q=${encodeURIComponent(location)}&aqi=no`);
+        if (!res.ok) throw new Error("DATA TIDAK DITEMUKAN");
+        const data = await res.json();
+        showWeather(data);
+      } catch (err) {
+        showError("LOKASI TIDAK DITEMUKAN!");
+      } finally {
+        document.getElementById('loading').style.display = 'none';
+      }
+    }
+
+    function showWeather(data) {
+      document.getElementById('weatherCard').style.display = 'block';
+      document.getElementById('locationName').textContent = data.location.name;
+      document.getElementById('country').textContent = data.location.country;
+      document.getElementById('region').textContent = data.location.region || "-";
+      document.getElementById('temperature').textContent = `${Math.round(data.current.temp_c)}°C`;
+      document.getElementById('condition').textContent = data.current.condition.text;
+      document.getElementById('feelslike').textContent = `${Math.round(data.current.feelslike_c)}°C`;
+      document.getElementById('humidity').textContent = `${data.current.humidity}%`;
+      let iconUrl = "https:" + data.current.condition.icon;
+      document.getElementById('weatherIcon').src = iconUrl.replace("64x64", "128x128");
+    }
+
+    function showError(msg) {
+      const e = document.getElementById('error');
+      e.textContent = msg;
+      e.style.display = 'block';
+      setTimeout(() => e.style.display = 'none', 3000);
+    }
+  </script>
+</body>
+</html>
