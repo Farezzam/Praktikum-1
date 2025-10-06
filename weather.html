@@ -198,3 +198,35 @@
         color: #00C700;
     }
     </style>
+</head>
+<body>
+  <div class="container">
+    <h1>👾 Info Cuaca Terkini 100% Akurat</h1>
+    <p>"SELECT YOUR CITY TO START THE QUEST"</p>
+
+    <div class="search-box">
+      <input type="text" id="locationInput" placeholder="NAMA KOTA...">
+      <button onclick="getWeather()">CARI</button>
+    </div>
+
+    <div class="loading" id="loading">LOADING...</div>
+    <div class="error" id="error"></div>
+
+    <div class="weather-card" id="weatherCard">
+      <h2 id="locationName">-</h2>
+      <img id="weatherIcon" src="" alt="Weather Icon">
+      <div class="temp" id="temperature">-°C</div>
+      <div id="condition">-</div>
+
+      <div class="info-grid">
+        <div class="info-item">NEGARA: <strong id="country">-</strong></div>
+        <div class="info-item">REGION: <strong id="region">-</strong></div>
+        <div class="info-item">TERASA: <strong id="feelslike">-°C</strong></div>
+        <div class="info-item">KELEMBABAN: <strong id="humidity">-%</strong></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>🍄 POWERED BY <a href="https://www.weatherapi.com/" target="_blank">WeatherAPI</a></p>
+    </div>
+  </div>
